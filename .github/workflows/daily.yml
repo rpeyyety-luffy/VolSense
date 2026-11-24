@@ -1,0 +1,34 @@
+# Week 3 (Person 3): runs daily_update.py every weekday and commits prediction.json.
+# The schedule is switched OFF until the real model works. To turn it on,
+# remove the # in front of the two "schedule" lines below.
+# Before that, add GEMINI_API_KEY in GitHub: Settings > Secrets and variables > Actions.
+
+name: Daily prediction
+
+on:
+  workflow_dispatch:          # lets you run it by hand from the Actions tab
+  # schedule:
+  #   - cron: "0 11 * * 1-5"  # 11:00 UTC = 4:30 PM IST, Monday to Friday
+
+permissions:
+  contents: write             # allows the job to commit prediction.json
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python daily_update.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Commit new prediction
+        run: |
+          git config user.name "volsense-bot"
+          git config user.email "actions@github.com"
+          git add public/prediction.json
+          git commit -m "Daily prediction update" || echo "No changes"
+          git push

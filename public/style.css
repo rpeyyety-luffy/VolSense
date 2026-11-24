@@ -1,0 +1,55 @@
+/* Person 1: change colours and fonts to make it ours. */
+:root {
+  --dark: #14213d;
+  --light: #f7f5f0;
+  --accent: #f4a259;
+  --muted: #6b7280;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+}
+
+header {
+  background: var(--dark);
+  color: var(--light);
+  padding: 40px 24px;
+}
+
+header h1 { margin: 0 0 8px; }
+
+main { max-width: 960px; margin: 0 auto; padding: 24px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label { color: var(--muted); font-size: 14px; }
+.value { font-size: 28px; font-weight: 700; }
+.date { color: var(--muted); font-size: 14px; }
+
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--dark);
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer { text-align: center; color: var(--muted); padding: 24px; font-size: 14px; }

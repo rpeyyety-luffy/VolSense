@@ -1,0 +1,9 @@
+yfinance
+pandas
+numpy
+scikit-learn
+plotly
+streamlit
+google-genai
+python-dotenv
+joblib

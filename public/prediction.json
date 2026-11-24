@@ -1,0 +1,10 @@
+{
+  "date": "2026-12-10",
+  "vix": 14.2,
+  "nifty": 24350.5,
+  "direction": "rise",
+  "confidence": 0.64,
+  "test_accuracy": 0.61,
+  "baseline_accuracy": 0.54,
+  "summary": "FAKE DATA: Our model gives a 64% chance that VIX will rise over the next 5 trading days. This is a probability, not a certainty."
+}
