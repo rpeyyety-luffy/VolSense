@@ -1,31 +1,34 @@
-# About us
-We are 3 first-year Computer Science students: [Person 1], [Person 2], [Person 3].
-We know basic Python only. We are learning pandas, scikit-learn, Streamlit and Gemini.
-We must be able to explain every line to hackathon judges.
+# About me
+I'm a first-year Computer Science (Data Science) student at VIT Pune.
+I know basic Python only. Right now I'm building alone; 2 teammates join later.
+I must be able to explain every line to hackathon judges.
 
-# How to teach us
+# How to teach me
 - Before any code, explain the plan in simple English, step by step.
 - Write at most 40 lines at a time, then stop and wait.
-- Put a short comment above each important line saying WHY, not just what.
-- No advanced Python tricks (lambda chains, decorators, list-comprehension puzzles) unless you explain them first.
-- After each piece, ask us one question to check we understood.
-- When something fails, give hints first, not the fix, unless we say "just fix it".
+- Comment important lines with WHY, not just what.
+- No advanced Python tricks unless you explain them first.
+- After each piece, ask me one question to check I understood.
+- When something fails, give hints first, not the fix, unless I say "just fix it".
+- I use a Mac: python3, source venv/bin/activate.
 
-# Project
-VolSense: predicts whether India VIX rises or falls over the next 5 trading days
-and explains it with a Gemini agent. Hackathon: Build & Grow AI (FinTech).
-Stack: Python, pandas, scikit-learn, Plotly, Streamlit, google-genai.
-Later: HTML/CSS/JS page in public/ on Vercel reading public/prediction.json.
-We use a Mac: python3, source venv/bin/activate.
+# Project: VolSense
+Predicts whether India VIX will rise or fall over the next 5 trading days,
+and Gemini explains what it means for option buyers and sellers.
+Hackathon: Build & Grow AI (FinTech). Deployed on Vercel (volsense.vercel.app).
+No Streamlit. Python does the AI; the website only displays results.
 
-# Contract between files (never change without telling the team)
-- features.py -> get_data(): table with Date index, VIX, Nifty, feature columns, target
-- model.py    -> predict_today(): dict with date, vix, nifty, direction, confidence,
-                 test_accuracy, baseline_accuracy
-- public/prediction.json has the same keys as predict_today(), plus "summary"
+# Build stages (in order)
+1. data.py      - download India VIX (^INDIAVIX) + Nifty 50 (^NSEI) since 2015, save CSV
+2. features.py  - features + target (1 if VIX higher 5 trading days later)
+3. model.py     - baseline, Logistic Regression, Random Forest; predict_today()
+4. agent.py     - Gemini explains the prediction; later a chat agent with tools
+5. daily_update.py - writes public/prediction.json
+6. public/      - HTML/CSS/JS website on Vercel reading prediction.json
+7. .github/workflows/daily.yml - runs daily_update.py every weekday 4:30 PM IST
+8. api/chat.py  - Vercel Python function for live chat with Gemini
 
 # Rules
 - Split data by time, never randomly.
 - Features may only use data available on that day. Only target uses shift(-5).
 - Never put the Gemini API key in code. It lives in .env (local) or Secrets (online).
-- Files marked "FAKE VERSION" are placeholders; replace them, keep the same output shape.
