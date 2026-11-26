@@ -32,3 +32,11 @@ No Streamlit. Python does the AI; the website only displays results.
 - Split data by time, never randomly.
 - Features may only use data available on that day. Only target uses shift(-5).
 - Never put the Gemini API key in code. It lives in .env (local) or Secrets (online).
+
+# Progress
+- Stage 1 done: data.py saves data/market_data.csv (vix_close, nifty_close/high/low).
+- Stage 2 done: features.py saves data/features.csv (7 features + target; last 5 rows have NaN target).
+- Stage 3 done: model.py. Train 2015-2022, test 2023-2026 (5-day gap).
+  Random Forest is best: test AUC 0.581, accuracy 54.3% vs baseline 50.9%.
+  predict_today() returns {date, prediction, probability_up, model}.
+  It retrains on all labelled data every run (random_state=42, so same result each run). No .pkl is saved.
