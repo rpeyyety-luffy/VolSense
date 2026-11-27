@@ -40,3 +40,7 @@ No Streamlit. Python does the AI; the website only displays results.
   Random Forest is best: test AUC 0.581, accuracy 54.3% vs baseline 50.9%.
   predict_today() returns {date, prediction, probability_up, model}.
   It retrains on all labelled data every run (random_state=42, so same result each run). No .pkl is saved.
+- Stage 4 done: agent.py. Main model gemini-3.5-flash-lite, backup gemini-3.6-flash,
+  2 attempts per model (2s wait) on 503/429, then fallback text (never crashes).
+  explain_prediction() returns the prediction + market numbers + strength + explanation in one dictionary.
+  Not committed to git yet (agent.py, requirements.txt).
