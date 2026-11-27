@@ -43,4 +43,7 @@ No Streamlit. Python does the AI; the website only displays results.
 - Stage 4 done: agent.py. Main model gemini-3.5-flash-lite, backup gemini-3.6-flash,
   2 attempts per model (2s wait) on 503/429, then fallback text (never crashes).
   explain_prediction() returns the prediction + market numbers + strength + explanation in one dictionary.
-  Not committed to git yet (agent.py, requirements.txt).
+- Stage 5 done: daily_update.py runs data -> features -> explain_prediction() and writes public/prediction.json.
+  Adds updated_at (IST), explanation_date, explanation_is_fresh.
+  If Gemini fails, it reuses the last good explanation with its old date (option A).
+  Not committed to git yet (daily_update.py, public/prediction.json, CLAUDE.md).

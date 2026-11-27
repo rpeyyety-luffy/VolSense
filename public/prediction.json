@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-27",
+  "prediction": "DOWN",
+  "probability_up": 0.397,
+  "model": "Random Forest",
+  "vix": 16.55,
+  "vix_vs_avg20_pct": 1.5,
+  "vix_change_5d_pct": 2.7,
+  "nifty_return_5d_pct": 0.4,
+  "strength": "strong",
+  "explanation": "India VIX is today at 16.55, which is up 1.5% from its 20-day average and up 2.7% over the last 5 days, while the Nifty 50 is up 0.4% over the same 5 days. With a strong signal and a 40% probability that VIX rises, our model prediction is that India VIX is more likely to fall over the next 5 trading days. For option buyers, a falling VIX usually means option premium, the price paid to buy options, will decrease in value. For option sellers, this downward trend is generally favorable because falling volatility helps erode option prices faster. Educational, not financial advice.",
+  "explanation_date": "2026-11-27",
+  "explanation_is_fresh": true,
+  "updated_at": "2026-11-27 19:46 IST"
+}
