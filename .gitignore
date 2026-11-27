@@ -18,3 +18,4 @@ data/*.csv
 
 # Claude Code personal settings
 .claude/settings.local.json
+.vscode/
